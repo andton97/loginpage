@@ -1,16 +1,20 @@
 import './components/login-form/login-form.css';
-/*import './components/container/container.css'*/
-import LoginForm from './components/login-form/login-form';
-import Container from './components/container/container';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import React from 'react';
+import LoginPage from './routes/login/login-page';
+import ToDoListPage from './routes/todolist/todolist-page';
 
 
-function App() {
+const App = () => {
   return (
-    <Container>
-      <LoginForm/>
-    </Container>
-  
-  );
+    <Router>
+      <Routes> 
+        <Route exact path = "/todolist" Component={ToDoListPage} />
+        <Route  path = "/*"  Component= {LoginPage} />
+      </Routes>
+    </Router>
+  ) 
 }
 
-export default App;
+export default App
+

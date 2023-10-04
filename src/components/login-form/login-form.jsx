@@ -15,7 +15,7 @@ const LoginForm = () => {
           </div>
           <div className="form__element">
             <button className="form__btn" type="submit">
-              <span className="form__btn--text">Login</span>
+              <span className="form__btn__text">Login</span>
             </button>
           </div>
           <div className="form__element">

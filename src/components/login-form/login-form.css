@@ -28,7 +28,7 @@
         box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.453), 0 5px 5px 0 rgba(0, 0, 0, 0.453);
       }
     
-      .form input {
+      .form__input {
         font-family: "Roboto", sans-serif;
         background: rgb(227, 226, 226);
         width: 100%;
