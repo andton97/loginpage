@@ -1,20 +1,15 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-      'Lucida Sans', Arial, sans-serif;
-  }
-  
-  body {
-    background-color: rgb(30, 30, 38)
-    ;
-  }
 
   h1 {
     margin: 32px 0;
     color: #dedede;
     font-size: 24px;
+  }
+
+  .to-container{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
   }
 
   .todo-complete {
@@ -77,6 +72,7 @@
     align-items: center;
     font-size: 24px;
     cursor: pointer;
+    gap: 8px;
   }
   
   .delete-icon {

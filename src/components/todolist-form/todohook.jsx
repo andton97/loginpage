@@ -1,9 +1,6 @@
-import React from "react";
 import { useState } from "react";
-import TodolistForm from "./todolist-form";
-import Todo from "./todo-edits";
 
-const TodoHandler = () => {
+const useTodoHook = () => {
   const [todos, setTodos] = useState([]);
 
   const addTodo = (todo) => {
@@ -42,18 +39,17 @@ const TodoHandler = () => {
     setTodos(updatedTodos);
   };
 
-  return (
-    <div>
-      <h1>TO DO LIST</h1>
-      <TodolistForm onSubmit={addTodo} />
-      <Todo
-        todos={todos}
-        completeTodo={completeTodo}
-        removeTodo={removeTodo}
-        updateTodo={updateTodo}
-      />
-    </div>
-  );
+  const [openModal, setOpenModal] = useState(false);
+
+  return {
+    addTodo,
+    removeTodo,
+    updateTodo,
+    completeTodo,
+    setOpenModal,
+    openModal,
+    todos,
+  };
 };
 
-export default TodoHandler;
+export default useTodoHook;

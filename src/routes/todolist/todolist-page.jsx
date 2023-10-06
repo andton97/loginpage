@@ -1,11 +1,10 @@
-import "../../components/todolist-form/todolist-form.css";
 import "./todolist-page.css";
-import TodoHandler from "../../components/todolist-form/todo-handler";
+import Todo from "../../components/todolist-form/todo";
 
 const ToDoListPage = () => {
   return (
     <div className="todo-page">
-      <TodoHandler />
+      <Todo />
     </div>
   );
 };

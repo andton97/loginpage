@@ -9,8 +9,10 @@ const App = () => {
   return (
     <Router>
       <Routes> 
+        
         <Route exact path = "/todolist" Component={ToDoListPage} />
-        <Route  path = "/*"  Component= {LoginPage} />
+        <Route  path = "/"  Component= {LoginPage} />
+        
       </Routes>
     </Router>
   ) 
