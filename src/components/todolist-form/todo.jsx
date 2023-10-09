@@ -3,13 +3,9 @@ import useTodoHook from "./todohook";
 import TodolistForm from "./todolist-form";
 import TodoList from "./todo-list";
 import "./todo.css";
-import EditModal from "../edit-modal/EditModal";
-import useModal from "./usemodal";
 
 function Todo() {
   const { addTodo, removeTodo, completeTodo, todos } = useTodoHook();
-
-  const { openModal, toggle } = useModal();
 
   return (
     <>
@@ -21,7 +17,6 @@ function Todo() {
           removeTodo={removeTodo}
           completeTodo={completeTodo}
         />
-        <EditModal openModal={openModal} hide={toggle} />
       </div>
     </>
   );
