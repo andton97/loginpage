@@ -39,15 +39,11 @@ const useTodoHook = () => {
     setTodos(updatedTodos);
   };
 
-  const [openModal, setOpenModal] = useState(false);
-
   return {
     addTodo,
     removeTodo,
     updateTodo,
     completeTodo,
-    setOpenModal,
-    openModal,
     todos,
   };
 };

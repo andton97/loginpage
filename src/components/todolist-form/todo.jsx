@@ -4,17 +4,12 @@ import TodolistForm from "./todolist-form";
 import TodoList from "./todo-list";
 import "./todo.css";
 import EditModal from "../edit-modal/EditModal";
+import useModal from "./usemodal";
 
 function Todo() {
-  const {
-    addTodo,
-    removeTodo,
-    updateTodo,
-    completeTodo,
-    setOpenModal,
-    openModal,
-    todos,
-  } = useTodoHook();
+  const { addTodo, removeTodo, completeTodo, todos } = useTodoHook();
+
+  const { openModal, toggle } = useModal();
 
   return (
     <>
@@ -23,11 +18,10 @@ function Todo() {
         <TodolistForm onSubmit={addTodo} />
         <TodoList
           todos={todos}
-          updateTodo={updateTodo}
           removeTodo={removeTodo}
           completeTodo={completeTodo}
         />
-        {openModal && <EditModal />}
+        <EditModal openModal={openModal} hide={toggle} />
       </div>
     </>
   );

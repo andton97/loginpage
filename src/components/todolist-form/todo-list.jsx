@@ -1,9 +1,11 @@
 import React from "react";
 import { RiCloseCircleLine } from "react-icons/ri";
 import { TiEdit } from "react-icons/ti";
-import useTodoHook from "./todohook";
+import useModal from "./usemodal";
 
-const TodoList = ({ todos, completeTodo, removeTodo, setOpenModal }) => {
+const TodoList = ({ todos, completeTodo, removeTodo }) => {
+  const { toggle } = useModal();
+
   return todos.map((todo, index) => (
     <div
       className={todo.isComplete ? "todo-complete" : "todo-uncomplete"}
@@ -21,7 +23,7 @@ const TodoList = ({ todos, completeTodo, removeTodo, setOpenModal }) => {
         <TiEdit
           className="edit-icon"
           onClick={() => {
-            setOpenModal(true);
+            toggle();
           }}
         />
       </div>
