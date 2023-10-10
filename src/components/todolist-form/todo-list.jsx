@@ -1,7 +1,7 @@
 import React from "react";
 import { RiCloseCircleLine } from "react-icons/ri";
 import { TiEdit } from "react-icons/ti";
-import useModal from "./usemodal";
+import useModal from "../edit-modal/usemodal";
 import EditModal from "../edit-modal/EditModal";
 
 const TodoList = ({ todos, completeTodo, removeTodo }) => {
