@@ -2,11 +2,18 @@ import React from "react";
 import "./EditModal.css";
 import { AiFillCloseCircle } from "react-icons/ai";
 import useTodoHook from "../todolist-form/todohook";
+import useModal from "./usemodal";
 
-const EditModal = ({ openModal, hide }) => {
-  const { updateTodo, todos } = useTodoHook();
-  return todos.map((todo, index) =>
-    openModal ? (
+const EditModal = ({ openModal, hide, todoToEdit } ) => {
+  const { updateTodo } = useTodoHook();
+  const { setTodoToEdit } = useModal();
+
+
+  
+  if (!openModal) return null;
+
+  return (
+  <div className="overlay">
       <form className="modal-container">
         <>
           <div className="modal-container__title">
@@ -22,6 +29,9 @@ const EditModal = ({ openModal, hide }) => {
             placeholder="Update todo"
             name="text"
             className="modal-container__input"
+            /* value={todoToEdit.text} */
+            onChange={(e) => {const updatedTodo = { ...todoToEdit, text: e.target.value };         
+            setTodoToEdit(updatedTodo);}}
           />
 
           <div className="modal-container__button">
@@ -36,7 +46,7 @@ const EditModal = ({ openModal, hide }) => {
             <button
               className="modal-container__button__update"
               onClick={() => {
-                updateTodo();
+                updateTodo(todoToEdit.id,todoToEdit);
               }}
             >
               Update
@@ -44,7 +54,7 @@ const EditModal = ({ openModal, hide }) => {
           </div>
         </>
       </form>
-    ) : null
+      </div>
   );
 };
 

@@ -1,12 +1,51 @@
-.todo-page {
+.todo-page-form {
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: flex-start;
     width: 520px;
     min-height: 600px;
-    background: #a5a5a552;
     text-align: center;
     margin: 128px auto;
     border-radius: 10px;
     padding-bottom: 32px;
+  }
+
+  #light .todo-page-form {
+    background-color: rgb(189, 178, 178);
+  }
+
+  #dark .todo-page-form {
+    background-color: #a5a5a552;
+  }
+
+
+
+  #light {
+    background-color: #fff;
+  }
+
+  #dark {
+    background-color: rgb(30, 30, 38);
+  }
+
+
+
+  .switch {
+    display: flex;
+    width: 100vw;
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .switch label {
+    margin: 10px;
+  }
+  
+  #light .switch label {
+    color: black;
+  }
+  
+  #dark .switch label {
+    color: white;
   }

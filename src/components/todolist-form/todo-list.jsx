@@ -5,36 +5,40 @@ import useModal from "../edit-modal/usemodal";
 import EditModal from "../edit-modal/EditModal";
 
 const TodoList = ({ todos, completeTodo, removeTodo }) => {
-  const { openModal, toggle } = useModal();
+  const { openModal, toggle, setTodoToEdit, todoToEdit } = useModal(); 
 
-  return todos.map((todo, index) => (
+
+  const handleEditClick = (todo) => {
+    setTodoToEdit(todo);
+    toggle();
+  };
+
+  return (
     <>
-      <div
-        className={todo.isComplete ? "todo-complete" : "todo-uncomplete"}
-        key={index}
-      >
-        <div key={todo.id} onClick={() => completeTodo(todo.id)}>
-          {todo.text}
+      {todos.map((todo,index) => (
+        <div
+          className={todo.isComplete ? "todo-complete" : "todo-uncomplete"}
+          key={index}
+        >
+          <div onClick={() => completeTodo(todo.id)}>{todo.text}</div>
+          <div className="icons">
+            <RiCloseCircleLine
+              onClick={() => removeTodo(todo.id)}
+              className="remove-icon"
+            />
+            <TiEdit
+              className="edit-icon"
+              onClick={() => handleEditClick(todo)} 
+            />
+          </div>
         </div>
-        <div className="icons">
-          <RiCloseCircleLine
-            onClick={() => removeTodo(todo.id)}
-            className="remove-icon"
-          />
-
-          <TiEdit
-            className="edit-icon"
-            onClick={() => {
-              toggle();
-            }}
-          />
-        </div>
-      </div>
+      ))}
       <div>
-        <EditModal openModal={openModal} hide={toggle} />
+        <EditModal openModal={openModal} hide={toggle} todoToEdit = {todoToEdit}/>
       </div>
     </>
-  ));
+  );
 };
 
 export default TodoList;
+

@@ -1,8 +1,16 @@
+.overlay {
+  background-color: rgba(0, 0, 0, 0.35) ;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
 
+}
   .modal-container {
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: flex-start;
     width: 450px;
     min-height: 200px;
     background: #a5a5a552;
