@@ -5,10 +5,18 @@ import useTodoHook from "../todolist-form/todohook";
 import useModal from "./usemodal";
 
 const EditModal = ({ openModal, hide, todoToEdit } ) => {
-  const { updateTodo } = useTodoHook();
+  const { updateTodo } = useTodoHook();  
   const { setTodoToEdit } = useModal();
 
-
+/*   const updateTodo = () => {
+    const newText = todoToEdit.text;
+    setTodoToEdit({
+      ...todoToEdit,
+      text: newText,
+    });
+  
+    hide();
+  }; */
   
   if (!openModal) return null;
 
@@ -30,8 +38,22 @@ const EditModal = ({ openModal, hide, todoToEdit } ) => {
             name="text"
             className="modal-container__input"
             /* value={todoToEdit.text} */
-            onChange={(e) => {const updatedTodo = { ...todoToEdit, text: e.target.value };         
-            setTodoToEdit(updatedTodo);}}
+        
+            defaultValue={todoToEdit.text}
+            onChange={(e) => {
+              setTodoToEdit({
+                ...todoToEdit,
+                text: e.target.value,
+              });
+            }}
+            onClick={(e) => {
+              setTodoToEdit({
+                ...todoToEdit,
+                text: e.target.value,
+              });
+              
+            }}
+           
           />
 
           <div className="modal-container__button">
@@ -45,9 +67,11 @@ const EditModal = ({ openModal, hide, todoToEdit } ) => {
 
             <button
               className="modal-container__button__update"
-              onClick={() => {
-                updateTodo(todoToEdit.id,todoToEdit);
-              }}
+              onClick={updateTodo}
+          
+              
+            
+              
             >
               Update
             </button>

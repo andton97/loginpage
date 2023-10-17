@@ -17,7 +17,7 @@ const useTodoHook = () => {
     setTodos(removeFromList);
   };
 
-  const updateTodo = (todoId, newValue) => {
+/*   const updateTodo = (todoId, newValue) => {
     if (!newValue.text || /^\s*$/.test(newValue.text)) {
       return;
     }
@@ -25,7 +25,12 @@ const useTodoHook = () => {
     setTodos((prev) =>
       prev.map((item) => (item.id === todoId ? newValue : item))
     );
-  };
+  }; */
+
+
+
+
+
 
   const completeTodo = (id) => {
     let updatedTodos = todos.map((todo) => {

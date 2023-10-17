@@ -8,10 +8,13 @@ export const ThemeContext = createContext(null);
 
 const ToDoListPage = () => {
 
-  const [theme, setTheme] = useState("dark")
+  const [theme, setTheme] = useState("light")
 
   const toggleTheme = () => {
     setTheme((curr) => (curr === "light" ? "dark" : "light"));
+    const body = document.body
+    body.dataset.theme = body.dataset.theme === "light" ? "dark" : "light"
+
   }
   return (
     <ThemeContext.Provider value = {{theme, toggleTheme}}>
