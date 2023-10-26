@@ -2,7 +2,7 @@ import React from "react";
 import useTodoHook from "./todohook";
 import TodolistForm from "./todolist-form";
 import TodoList from "./todo-list";
-import "./todo.css";
+import "./todo.scss";
 
 function Todo() {
   const { addTodo, removeTodo, completeTodo, todos } = useTodoHook();
@@ -12,11 +12,13 @@ function Todo() {
       <div className="todo-container">
         <h1>TODO LIST</h1>
         <TodolistForm onSubmit={addTodo} />
-        <TodoList
-          todos={todos}
-          removeTodo={removeTodo}
-          completeTodo={completeTodo}
-        />
+        <div className="todo-container__todoList">
+          <TodoList
+            todos={todos}
+            removeTodo={removeTodo}
+            completeTodo={completeTodo}
+          />
+        </div>
       </div>
     </>
   );

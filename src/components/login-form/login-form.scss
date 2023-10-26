@@ -1,0 +1,73 @@
+.login-card {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin: auto;
+
+  &__container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+
+    &__form {
+      position: relative;
+      background: #2f2f2f;
+      max-width: 360px;
+      margin: 0 auto 100px;
+      padding: 10px 45px 45px 45px;
+      text-align: center;
+      box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.453),
+        0 5px 5px 0 rgba(0, 0, 0, 0.453);
+
+      &__h1 {
+        color: #dedede;
+        padding: 0;
+        margin-bottom: 20px;
+      }
+
+      &__mail__input {
+        font-family: "Roboto", sans-serif;
+        background: #2f2f2f;
+        width: 100%;
+        border: 2px solid black;
+        margin: 0 0 15px;
+        padding: 15px;
+        box-sizing: border-box;
+        font-size: 14px;
+        color: #dedede;
+        border-radius: 4px;
+      }
+
+      &__password__input {
+        font-family: "Roboto", sans-serif;
+        background: #2f2f2f;
+        width: 100%;
+        border: 2px solid black;
+        margin: 0 0 15px;
+        padding: 15px;
+        box-sizing: border-box;
+        font-size: 14px;
+        color: #dedede;
+        border-radius: 4px;
+      }
+
+      &__element__btn {
+        text-transform: uppercase;
+        background: cornflowerblue;
+        width: 100%;
+        border: 0;
+        padding: 15px;
+        color: #ffffff;
+        font-size: 14px;
+        cursor: pointer;
+        border-radius: 4px;
+      }
+
+      &__element__message {
+        margin: 15px 0 0;
+        color: rgb(174, 174, 174);
+        font-size: 12px;
+      }
+    }
+  }
+}

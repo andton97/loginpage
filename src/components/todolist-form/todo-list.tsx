@@ -3,19 +3,25 @@ import { RiCloseCircleLine } from "react-icons/ri";
 import { TiEdit } from "react-icons/ti";
 import useModal from "../edit-modal/usemodal";
 import EditModal from "../edit-modal/EditModal";
+import { Todo } from "../../types/todos.types";
 
-const TodoList = ({ todos, completeTodo, removeTodo }) => {
-  const { openModal, toggle, setTodoToEdit, todoToEdit } = useModal(); 
+type TodoListType = {
+  todos: Todo[];
+  completeTodo: (id: number) => void;
+  removeTodo: (id: number) => void;
+};
 
+const TodoList = ({ todos, completeTodo, removeTodo }: TodoListType) => {
+  const { openModal, toggle, setTodoToEdit, todoToEdit } = useModal();
 
-  const handleEditClick = (todo) => {
+  const handleEditClick = (todo: Todo) => {
     setTodoToEdit(todo);
     toggle();
   };
 
   return (
     <>
-      {todos.map((todo,index) => (
+      {todos.map((todo, index) => (
         <div
           className={todo.isComplete ? "todo-complete" : "todo-uncomplete"}
           key={index}
@@ -28,17 +34,20 @@ const TodoList = ({ todos, completeTodo, removeTodo }) => {
             />
             <TiEdit
               className="edit-icon"
-              onClick={() => handleEditClick(todo)} 
+              onClick={() => handleEditClick(todo)}
             />
           </div>
         </div>
       ))}
       <div>
-        <EditModal openModal={openModal} hide={toggle} todoToEdit = {todoToEdit}/>
+        <EditModal
+          openModal={openModal}
+          hide={toggle}
+          todoToEdit={todoToEdit}
+        />
       </div>
     </>
   );
 };
 
 export default TodoList;
-

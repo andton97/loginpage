@@ -1,19 +1,29 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, {
+  useState,
+  useEffect,
+  useRef,
+  ChangeEvent,
+  FormEvent,
+} from "react";
+import { Todo } from "../../types/todos.types";
 
-const TodolistForm = ({ onSubmit }) => {
+type TodoListFormProps = { onSubmit: (todo: Todo) => void };
+
+const TodolistForm = ({ onSubmit }: TodoListFormProps) => {
   const [input, setInput] = useState("");
 
-  const inputRef = useRef(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
+    if (!inputRef.current) return;
     inputRef.current.focus();
   }, []);
 
-  const handleChange = (e) => {
-    setInput(e.target.value);
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setInput(e?.target?.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     onSubmit({
       id: Math.floor(Math.random() * 10000),

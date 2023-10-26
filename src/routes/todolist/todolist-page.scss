@@ -1,0 +1,30 @@
+body {
+  background-color: var(--color-bg);
+}
+
+.todo-page-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 520px;
+  max-height: 400px;
+  overflow-y: hidden;
+  text-align: center;
+  margin: 50px auto;
+  border-radius: 10px;
+  padding-bottom: 32px;
+  background-color: var(--color-bg-form);
+}
+
+.switch {
+  display: flex;
+  width: 100vw;
+  height: 100px;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-toggle-theme);
+}
+
+.switch label {
+  margin: 10px;
+}

@@ -1,27 +1,29 @@
 import React from "react";
-import "./EditModal.css";
+import "./EditModal.scss";
 import { AiFillCloseCircle } from "react-icons/ai";
 import useTodoHook from "../todolist-form/todohook";
-import useModal from "./usemodal";
+import { Todo } from "../../types/todos.types";
 
-const EditModal = ({ openModal, hide, todoToEdit } ) => {
-  const { updateTodo } = useTodoHook();  
-  const { setTodoToEdit } = useModal();
+type EditModalType = {
+  openModal: boolean;
+  hide: () => void;
+  todoToEdit: Todo | null;
+};
 
-/*   const updateTodo = () => {
-    const newText = todoToEdit.text;
-    setTodoToEdit({
-      ...todoToEdit,
-      text: newText,
-    });
-  
-    hide();
-  }; */
-  
+const EditModal = ({ openModal, hide, todoToEdit }: EditModalType) => {
+  const { updateTodo } = useTodoHook();
+
   if (!openModal) return null;
 
+  const handleUpdateTodo = () => {
+    if (todoToEdit) {
+      updateTodo(todoToEdit.id, todoToEdit.text);
+      hide();
+    }
+  };
+
   return (
-  <div className="overlay">
+    <div className="overlay">
       <form className="modal-container">
         <>
           <div className="modal-container__title">
@@ -37,23 +39,12 @@ const EditModal = ({ openModal, hide, todoToEdit } ) => {
             placeholder="Update todo"
             name="text"
             className="modal-container__input"
-            /* value={todoToEdit.text} */
-        
-            defaultValue={todoToEdit.text}
+            defaultValue={todoToEdit?.text}
             onChange={(e) => {
-              setTodoToEdit({
-                ...todoToEdit,
-                text: e.target.value,
-              });
+              if (todoToEdit) {
+                todoToEdit.text = e.target.value;
+              }
             }}
-            onClick={(e) => {
-              setTodoToEdit({
-                ...todoToEdit,
-                text: e.target.value,
-              });
-              
-            }}
-           
           />
 
           <div className="modal-container__button">
@@ -67,18 +58,14 @@ const EditModal = ({ openModal, hide, todoToEdit } ) => {
 
             <button
               className="modal-container__button__update"
-              onClick={updateTodo}
-          
-              
-            
-              
+              onClick={handleUpdateTodo}
             >
               Update
             </button>
           </div>
         </>
       </form>
-      </div>
+    </div>
   );
 };
 
