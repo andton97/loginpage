@@ -7,10 +7,12 @@ body {
   flex-direction: column;
   justify-content: flex-start;
   width: 520px;
-  max-height: 400px;
+  height: 490px;
+  max-height: 80vh;
   overflow-y: hidden;
   text-align: center;
-  margin: 50px auto;
+  margin: 20px auto;
+  margin-bottom: 0;
   border-radius: 10px;
   padding-bottom: 32px;
   background-color: var(--color-bg-form);
@@ -19,7 +21,7 @@ body {
 .switch {
   display: flex;
   width: 100vw;
-  height: 100px;
+  height: 10vh;
   justify-content: center;
   align-items: center;
   color: var(--color-toggle-theme);
@@ -27,4 +29,13 @@ body {
 
 .switch label {
   margin: 10px;
+}
+
+@media (max-width: 525px) {
+  .todo-page-form {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    max-height: 90vh;
+  }
 }

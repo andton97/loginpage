@@ -1,0 +1,10 @@
+/** 
+
+Responsive //quasi
+Voci todolist riordinabili (dnd (drag and drop))
+Filtro di ricerca // done con select, da fare con searchbar
+Format al save, configurazione su editor // done 
+Componente alert (max 10 elementi attivi in lista) useEffect  // done con if e con useEffect 
+
+
+*/

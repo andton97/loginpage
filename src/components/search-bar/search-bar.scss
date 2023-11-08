@@ -1,0 +1,15 @@
+.search-bar-form {
+  display: flex;
+  justify-content: center;
+  height: 30px;
+  background-color: rgb(175, 175, 174);
+  border-bottom-left-radius: 3px;
+  border-top-left-radius: 3px;
+  border: none;
+}
+
+input {
+  outline: none;
+  background-color: rgb(175, 175, 174);
+  border: none;
+}

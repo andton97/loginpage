@@ -1,5 +1,5 @@
 h1 {
-  margin: 32px 0;
+  margin: 20px 0;
   color: var(--color-h1);
   font-size: 24px;
 }
@@ -8,11 +8,20 @@ h1 {
   display: flex;
   flex-direction: column;
   padding: 10px;
+  height: 200vh;
 
   &__todoList {
-    max-height: 200px;
+    max-height: 300px;
     overflow: auto;
-    height: 200px;
+    max-height: 42vh;
+  }
+
+  &__searchBy {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    padding-bottom: 12px;
+    margin-left: 10%;
   }
 }
 
@@ -86,7 +95,7 @@ h1 {
   text-transform: capitalize;
 }
 
-.todo-uncomplete {
+.todo-incomplete {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -113,4 +122,21 @@ h1 {
 
 .edit-icon {
   color: #fff;
+}
+
+@media (max-width: 430px) {
+  .todo-form__button {
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 525px) {
+  .todo-container__todoList {
+    height: 53vh;
+    max-height: 100vh;
+  }
+  .todo-container__searchBy {
+    justify-content: center;
+    margin-left: 0;
+  }
 }

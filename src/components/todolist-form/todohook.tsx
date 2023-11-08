@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Todo } from "../../types/todos.types";
 
 const useTodoHook = () => {
@@ -12,6 +12,10 @@ const useTodoHook = () => {
     const newTodos = [todo, ...todos];
     setTodos(newTodos);
   };
+
+  useEffect(() => {
+    if (todos.length > 10) alert("Too many todos");
+  }, [todos]);
 
   const removeTodo = (id: number) => {
     const removeFromList = [...todos].filter((todo) => todo.id !== id);
@@ -38,8 +42,10 @@ const useTodoHook = () => {
       return todo;
     });
 
-    const completedTodos = updatedTodos.filter((todo) => todo.isComplete);
-    const incompleteTodos = updatedTodos.filter((todo) => !todo.isComplete);
+    const completedTodos = [...updatedTodos].filter((todo) => todo.isComplete);
+    const incompleteTodos = [...updatedTodos].filter(
+      (todo) => !todo.isComplete
+    );
 
     const newTodos = incompleteTodos.concat(completedTodos);
 

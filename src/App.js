@@ -5,7 +5,6 @@ import LoginPage from "./routes/login/login-page";
 import ToDoListPage from "./routes/todolist/todolist-page";
 import PresentationPage from "./routes/presentation/presentation-page";
 
-
 const App = () => {
   return (
     <Router>
